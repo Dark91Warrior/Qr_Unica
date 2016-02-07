@@ -1,1 +1,6 @@
-INDEX VERSION 1.3+C:\Users\Luca\Progetti\QR_UNICA\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+INDEX VERSION 1.3+C:\Users\Luca\Progetti\QR_UNICA\Qr_Unica\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2451274688.index
+1589376448.index
+826464164.index
+225447058.index
+3636013308.index
