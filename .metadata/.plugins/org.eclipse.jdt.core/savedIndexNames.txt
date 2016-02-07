@@ -1,0 +1,8 @@
+INDEX VERSION 1.127+C:\Users\Luca\Progetti\QR_UNICA\.metadata\.plugins\org.eclipse.jdt.core
+977061189.index
+715257351.index
+367997829.index
+1965152972.index
+1829598537.index
+1839398715.index
+475098746.index
