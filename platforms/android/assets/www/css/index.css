@@ -24,7 +24,7 @@ body {
     -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
     -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
     -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
-    background-color:#E4E4E4;
+/*    background-color:#E4E4E4;
     background-image:linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-webkit-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
     background-image:-ms-linear-gradient(top, #A7A7A7 0%, #E4E4E4 51%);
@@ -35,14 +35,14 @@ body {
         color-stop(0, #A7A7A7),
         color-stop(0.51, #E4E4E4)
     );
-    background-attachment:fixed;
-    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-    font-size:12px;
+    background-attachment:fixed;*/
+    line-height: 20px;
+    font-family: Verdana,Geneva,sans-serif !important;
+    font-size:15px;
     height:100%;
-    margin:0px;
-    padding:0px;
-    text-transform:uppercase;
-    width:100%;
+    padding: 4px;
+	margin: auto;
+	width: auto;
 }
 
 /* Portrait layout (default) */
@@ -112,4 +112,87 @@ h1 {
 .blink {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
+}
+
+
+
+
+
+
+
+
+/* CSS Nuovi */
+
+
+.block {
+	min-height: 20px;
+	margin-bottom: 20px;
+    padding: 0px;
+    box-shadow: none;
+    background: transparent none repeat scroll 0% 0%;
+    border-radius: 0px;
+    text-align: center;
+    border: 0px solid #E8EAEB;
+	color: #444;
+}
+
+.block .header {
+    border-top: 1px solid rgb(28, 52, 90);
+    padding: 20px 0px 10px 0px;
+    background: transparent none repeat scroll 0% 0%;
+    border-bottom: 0px solid #E8EAEB;
+    margin: 0px 10px !important;
+    border-color: #333;
+}
+
+.block .content {
+	padding: 10px;
+	font-weight: normal;
+	font-size: 90%;
+	color: #333;
+	font-weight: normal;
+	word-wrap: break-word;
+}
+
+#submitButton {
+    margin: 10px 0px 10px 5px;
+    background: #00AEEF none repeat scroll 0% 0% / 100% 200%;
+    text-shadow: none;
+    box-shadow: 0px -2px 0px 0px rgba(0, 0, 0, 0.5) inset;
+    border: 0px none;
+    border-radius: 2px;
+    color: #FFF;
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 15px;
+    transition: background 0.2s ease-out 0s;
+    font-size: 14px;
+	line-height: 20px;
+	text-align: center;
+	vertical-align: middle;
+	width: 90%;
+	font-weight: normal;
+	font-family: Verdana,Geneva,sans-serif !important;
+}
+
+input[type="text"], input[type="password"] {
+	display: inline-block;
+	height: 20px;
+	padding: 4px 6px;
+	margin-bottom: 10px;
+	font-size: 14px;
+	line-height: 20px;
+	color: #555;
+	vertical-align: middle;
+	border-radius: 4px;
+	background-color: #FFF;
+	border: 1px solid #CCC;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+	transition: border 0.2s linear 0s, box-shadow 0.2s linear 0s;
+}
+
+input[type="text"]:focus, input[type="password"]:focus {
+	border-color: rgba(82, 168, 236, 0.8);
+	outline: 0px none;
+	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(82, 168, 236, 0.6);
 }
