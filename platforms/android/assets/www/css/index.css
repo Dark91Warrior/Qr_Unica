@@ -138,7 +138,7 @@ h1 {
 
 .block .header {
     border-top: 1px solid rgb(28, 52, 90);
-    padding: 20px 0px 10px 0px;
+    padding: 40px 0px 10px 0px;
     background: transparent none repeat scroll 0% 0%;
     border-bottom: 0px solid #E8EAEB;
     margin: 0px 10px !important;
@@ -154,7 +154,7 @@ h1 {
 	word-wrap: break-word;
 }
 
-#submitButton {
+#submitButton, #button {
     margin: 10px 0px 10px 5px;
     background: #00AEEF none repeat scroll 0% 0% / 100% 200%;
     text-shadow: none;
@@ -170,9 +170,18 @@ h1 {
 	line-height: 20px;
 	text-align: center;
 	vertical-align: middle;
-	width: 90%;
+	width: 70%;
 	font-weight: normal;
 	font-family: Verdana,Geneva,sans-serif !important;
+}
+
+#button {
+	width: 70%;
+}
+
+#button:focus, #submitButton:focus {
+	color: #FFF;
+	background-color: #0084C2;
 }
 
 input[type="text"], input[type="password"] {
@@ -195,4 +204,17 @@ input[type="text"]:focus, input[type="password"]:focus {
 	border-color: rgba(82, 168, 236, 0.8);
 	outline: 0px none;
 	box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset, 0px 0px 8px rgba(82, 168, 236, 0.6);
+}
+
+a:link, a:visited, button:link, button:visited {
+	text-decoration: none;
+}
+
+.ui-icon-loading {
+    opacity: 0;
+}
+
+.ui-loading .ui-loader
+{
+    display:none;
 }

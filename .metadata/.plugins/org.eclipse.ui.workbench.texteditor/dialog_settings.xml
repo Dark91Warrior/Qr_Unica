@@ -2,22 +2,23 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="margin" key="selection"/>
+		<item value="localStorage" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
-			<item value="margin"/>
-			<item value="header"/>
-			<item value="left"/>
-			<item value="center"/>
-			<item value="hello"/>
-			<item value="android:label"/>
-			<item value="field"/>
-			<item value="checkPreAuth"/>
+			<item value="localStorage"/>
+			<item value="logInfo"/>
+			<item value="en"/>
+			<item value="method"/>
+			<item value="moodleWScall"/>
+			<item value="moodle"/>
+			<item value="sites"/>
+			<item value="lang"/>
 		</list>
 		<list key="replacehistory">
+			<item value="submitButton"/>
 			<item value="&quot;"/>
 			<item value="&gt;"/>
 			<item value="&lt;"/>
@@ -27,7 +28,7 @@
 		<item value="257" key="DIALOG_WIDTH"/>
 		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<item value="381" key="DIALOG_HEIGHT"/>
-		<item value="914" key="DIALOG_X_ORIGIN"/>
-		<item value="146" key="DIALOG_Y_ORIGIN"/>
+		<item value="1091" key="DIALOG_X_ORIGIN"/>
+		<item value="102" key="DIALOG_Y_ORIGIN"/>
 	</section>
 </section>

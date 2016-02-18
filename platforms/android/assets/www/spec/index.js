@@ -1,67 +1,52 @@
-/*
- * Licensed to the Apache Software Foundation (ASF) under one
- * or more contributor license agreements.  See the NOTICE file
- * distributed with this work for additional information
- * regarding copyright ownership.  The ASF licenses this file
- * to you under the Apache License, Version 2.0 (the
- * "License"); you may not use this file except in compliance
- * with the License.  You may obtain a copy of the License at
- *
- * http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing,
- * software distributed under the License is distributed on an
- * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- * KIND, either express or implied.  See the License for the
- * specific language governing permissions and limitations
- * under the License.
- */
-describe('app', function() {
-    describe('initialize', function() {
-        it('should bind deviceready', function() {
-            runs(function() {
-                spyOn(app, 'onDeviceReady');
-                app.initialize();
-                helper.trigger(window.document, 'deviceready');
-            });
-
-            waitsFor(function() {
-                return (app.onDeviceReady.calls.length > 0);
-            }, 'onDeviceReady should be called once', 500);
-
-            runs(function() {
-                expect(app.onDeviceReady).toHaveBeenCalled();
-            });
-        });
-    });
-
-    describe('onDeviceReady', function() {
-        it('should report that it fired', function() {
-            spyOn(app, 'receivedEvent');
-            app.onDeviceReady();
-            expect(app.receivedEvent).toHaveBeenCalledWith('deviceready');
-        });
-    });
-
-    describe('receivedEvent', function() {
-        beforeEach(function() {
-            var el = document.getElementById('stage');
-            el.innerHTML = ['<div id="deviceready">',
-                            '    <p class="event listening">Listening</p>',
-                            '    <p class="event received">Received</p>',
-                            '</div>'].join('\n');
-        });
-
-        it('should hide the listening element', function() {
-            app.receivedEvent('deviceready');
-            var displayStyle = helper.getComputedStyle('#deviceready .listening', 'display');
-            expect(displayStyle).toEqual('none');
-        });
-
-        it('should show the received element', function() {
-            app.receivedEvent('deviceready');
-            var displayStyle = helper.getComputedStyle('#deviceready .received', 'display');
-            expect(displayStyle).toEqual('block');
-        });
-    });
-});
+(function() {
+	$("#submitButton").click(function(){
+		
+		// Check if we are connected to Internet
+	    if(! connectionOn){
+	        popErrorMessage("Internet connection required to perform this action");
+	        return;    
+	    }
+		
+		// Check for a correct URL        $.trim($("#isiteurl").val())
+	    var siteurl =  "http://localhost/moodle";
+	    var username = $.trim($("#username").val());
+	    var password = $.trim($("#password").val());
+	    var mytoken;
+	    
+	    // Delete the last / if present
+	    if(siteurl.charAt(siteurl.length-1) == '/'){
+	        siteurl = siteurl.substring(0,siteurl.length-1);
+	    }
+	    
+	    var stop = false;
+	    var msg = "";
+	    
+	    if(siteurl.indexOf("http://localhost") == -1 && ! /^(https?|ftp):\/\/(((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)+(\/(([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#((([a-z]|\d|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&'\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i.test(siteurl)){                    
+	        msg += "Bad URL<br/>";
+	        stop = true;
+	    }
+	
+		$.getJSON(siteurl+"/login/token.php",
+	        {
+	            username: username,
+	            password: password,
+	            service: "moodle_mobile_app"                       
+	        }    
+	        ,function(json){
+	        	if(typeof(json.token) != 'undefined'){   
+	                mytoken = json.token;
+	                
+	                var data = {};
+	                var preSets = {
+	                    wstoken: mytoken,
+	                    siteurl: siteurl
+	                }                    
+	                moodleWSCall('moodle_webservice_get_siteinfo', data, addSite, preSets);
+	                
+	            }
+	            else{                            
+	                popErrorMessage("Problem connecting to the Moodle site");
+	            }
+		});
+	}
+})();
