@@ -9,12 +9,12 @@
         <param name="android-package" value="com.phonegap.plugins.barcodescanner.BarcodeScanner" />
     </feature>
     <allow-intent href="market:*" />
-    <name>Hello World</name>
+    <name>Qr_Unica</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Un'applicazione per prendere le presenze tramite QrCode.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+    <author email="l.puggioninu@gmail.com" href="http://moodle.unica.it">
+        Luca Puggioninu
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
@@ -76,6 +76,7 @@
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
+    <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
